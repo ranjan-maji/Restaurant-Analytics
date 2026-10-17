@@ -1,0 +1,13 @@
+{
+  "name": "restaurant-analytics",
+  "private": true,
+  "workspaces": ["server", "sdk", "dashboard", "demo"],
+  "scripts": {
+    "setup": "npm install --workspaces --include-workspace-root",
+    "dev": "concurrently -k -n server,demo,dash \"npm --workspace server run dev\" \"npm --workspace demo run dev\" \"npm --workspace dashboard run dev\"",
+    "test": "npm --workspaces --if-present run test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
